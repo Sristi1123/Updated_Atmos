@@ -1,0 +1,330 @@
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --glass-radius: 16px;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --accent: #FFD700;
+  --accent-hover: #ffea70;
+}
+
+html {
+  height: auto !important;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  color: var(--text-primary);
+  background: linear-gradient(-45deg, #1A1A2E, #16213E, #0F3460, #E94560);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Navbar Enhancements */
+.navbar {
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar-brand, .nav-link {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+  color: var(--accent) !important;
+}
+
+/* Main Section Styling */
+#main {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 2rem !important;
+  background: transparent !important;
+}
+
+.glass-panel {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--glass-radius);
+  padding: 3rem !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+}
+
+h1, h3, h5, .card-title {
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.text-white-50 {
+  color: var(--text-secondary) !important;
+}
+.text-warning {
+  color: var(--accent) !important;
+}
+
+/* Inputs and Buttons */
+.form-control, .form-class, .ap-input {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-primary) !important;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.form-control::placeholder, .form-class::placeholder, .ap-input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.form-control:focus, .form-class:focus, .ap-input:focus {
+  background: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25) !important;
+  border-color: var(--accent) !important;
+  outline: none;
+}
+
+.btn-warning, .btn-outline-success {
+  background: var(--accent) !important;
+  border: none !important;
+  color: #1a1a1a !important;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.btn-warning:hover, .btn-outline-success:hover {
+  background: var(--accent-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Form layout tweak */
+#searching {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-group-custom {
+  display: flex;
+  gap: 15px;
+}
+
+/* Weather Elements Layout */
+#section {
+  display: none; /* hidden initially by JS */
+  padding: 3rem 1rem !important;
+  background: transparent !important;
+  flex-grow: 1;
+}
+
+#section .card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--glass-radius);
+  overflow: hidden;
+  border: none;
+}
+
+#image {
+  display: none !important;
+}
+
+.card-img-overlay {
+  position: relative !important;
+  height: auto !important;
+  min-height: 100% !important;
+  padding: 2rem;
+}
+
+#section .card {
+  height: auto !important;
+  min-height: min-content !important;
+  margin-bottom: 2rem !important;
+}
+
+.list-group-item {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  margin-bottom: 0.5rem;
+  border-radius: 8px !important;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.list-group-item:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Make row wrap correctly and interactive */
+#section2 #row {
+  display: flex;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+#section2 .col-5 {
+  flex: 1 1 300px !important;
+  max-width: 400px !important;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+#section2 .card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  border-radius: var(--glass-radius) !important;
+  height: 100% !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#section2 .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
+}
+
+#section2 div[id^="images"] {
+  display: none !important; /* Hide old background images for a clean glass look */
+}
+
+#section2 .card-img-overlay {
+  position: relative !important;
+  height: auto !important;
+  padding: 2rem !important;
+}
+
+#section2 .list-group-item {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  margin-bottom: 0.5rem;
+  border-radius: 8px !important;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#section2 .list-group-item:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateX(5px);
+  border-color: var(--accent) !important;
+}
+
+#section2 h5.card-title {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  color: #fff !important;
+}
+
+#section2 .text-warning {
+  color: var(--accent) !important;
+}
+
+/* Footer structure */
+.footer {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--glass-border);
+  padding: 1.5rem 0 !important;
+  margin-top: 4rem !important;
+  flex-shrink: 0;
+  position: relative !important;
+  z-index: 10;
+  width: 100%;
+  display: block;
+}
+
+.footer h6 {
+  color: var(--text-secondary);
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+hr.solid {
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Algolia Places overrides */
+.algolia-places {
+  width: 100%;
+  display: block;
+}
+.ap-dropdown-menu {
+  background: rgba(25, 25, 35, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: white;
+}
+.ap-input-icon {
+  right: 15px !important;
+}
+.ap-suggestion {
+  color: white;
+}
+.ap-cursor {
+  background: rgba(255, 255, 255, 0.1);
+}
+.ap-suggestion-icon svg {
+  fill: var(--accent);
+}
+
+/* Utilities */
+.d-flex.flex-row.justify-content-around {
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.list-group {
+  flex: 1;
+  min-width: 250px;
+}
